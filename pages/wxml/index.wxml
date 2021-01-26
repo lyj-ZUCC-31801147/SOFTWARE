@@ -1,0 +1,5 @@
+<!--pages/wxml/index.wxml-->
+<text>pages/wxml/index.wxml</text>
+
+<image class="userinfo-avatar" src="./image/a.png" ></image>
+<!--pages/wxml/index.wxml-->

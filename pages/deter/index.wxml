@@ -1,0 +1,28 @@
+<!--pages/deter/index.wxml-->
+	
+<view class="content" >	
+    <view class="title">	
+    <text id="title">{{titlemsg}}{{countDown}}</text>
+    </view>
+    <view class="ContentMiddle">
+    <progress percent="{{timeProgress}}" stroke-width="10rpx"></progress>
+    <view class="ProblemTitle">{{problemMsg}}</view>
+    <image class="{{isclickLeft?'imageclick':'imageOne'}}" bindtap="tapLeft" src="{{LeftUrl}}">  
+      </image>
+      <image class="{{isclickRight?'imageclick':'imageOne'}}" bindtap="tapRight" src="{{RightUrl}}">
+      </image>
+      <button class="button" bindtap="confirm">
+          <text>确认</text>  
+        </button>
+    </view> 
+
+    <view class="ButtonBlock">
+        <button class="button" bindtap="restart">
+          <text>重新开始</text>
+        </button>
+        <button class="button" bindtap="goBack">
+          <text>返回教程页面</text>
+        </button>  
+    </view>
+  </view>	
+  

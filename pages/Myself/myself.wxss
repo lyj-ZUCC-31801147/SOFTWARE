@@ -1,0 +1,41 @@
+.content{
+	display: flex;
+	flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+	height: 100vh;
+	background-image: url("https://i.loli.net/2020/12/22/SvWA8jLT17CgQOZ.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+	flex-wrap: wrap;
+  }
+  .Content{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 90%;
+  height: 900rpx;
+  background-color: whitesmoke;
+  border: royalblue solid 10rpx;
+  border-radius: 50rpx;
+  }
+
+  .ButtonBlock{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-content: center;
+    align-items: center;
+    height: 100rpx;
+    width: 100%;
+  }
+  .Button{
+    background-color: rgba(0, 0,0, 0);
+    text-align: center;
+     width: 100rpx;
+    height: 100rpx;
+    padding: 20rpx 20rpx 20rpx 20rpx;
+    background-image: url("https://s3.ax1x.com/2020/12/17/r8yIzj.png");
+    background-size: 100% 100%;
+  }

@@ -1,0 +1,12 @@
+<!--pages/Myself/myself.wxml-->
+<view class="content">
+  <view class="Content">
+    <view class="head"></view>
+  
+  <view class="ButtonBlock">
+    <button class="Button" bindtap="GoBack">
+      <text>返回</text>
+    </button>
+  </view>
+</view>
+</view>
