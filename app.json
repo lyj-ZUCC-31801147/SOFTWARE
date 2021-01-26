@@ -1,0 +1,27 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/compareEnd/end",
+    "pages/Myself/myself",
+    "pages/beginGame/beginGame",
+    
+
+    "pages/comparelogin/login", 
+   "pages/compare/index",
+    
+   "pages/logs/logs",
+   
+   "pages/deter/index",
+    "pages/deterEnd/end",
+    "pages/deterlogin/login"
+   
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "Weixin",
+    "navigationBarTextStyle":"black"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

@@ -1,0 +1,84 @@
+.content{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	height: 100vh;
+	background-image: url("https://i.loli.net/2020/12/22/SvWA8jLT17CgQOZ.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+	flex-wrap: wrap;
+	}
+
+	.title{
+		display: block;
+		height: 80rpx;
+		width: 80%;
+		text-align: center;
+		border-radius: 20rpx;
+		box-shadow: 0rpx 5rpx 15rpx #7e7e7e;
+		margin-top: 5vh;
+		text-shadow: 0 0 3px #f0f;	
+
+	}
+	#title{
+		line-height: 80rpx;
+		font-size: medium;
+	}
+	.ContentMiddle{
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	height: 700rpx;
+	width: 90%;
+	background-color:wheat;
+	border: orange solid 10rpx ;
+	box-shadow: 2px 2px 15rpx black;
+	border-radius: 50rpx;		
+	}
+	
+	.ProblemTitle{
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		height: 40rpx;
+		width: 100%;	
+		/* 字体未设置 */
+	}
+	.imageOne{
+		width: 300rpx;
+		height: 300rpx;
+		border-radius: 30rpx;
+		background-size: 100% 100%;
+	}
+	.imageclick{
+		width: 300rpx;
+		height: 300rpx;
+		background-size: 100% 100%;
+		border-radius: 30rpx;
+		border:4rpx solid red;
+		box-shadow: 4px 4px  15rpx sienna inset;
+	}
+	.ButtonBlock{
+display: flex;
+flex-direction: row;
+justify-content: space-around;
+align-content: center;
+align-items: center;
+height: 150rpx;
+width: 100%;
+	}
+  .button{
+    background-color: rgba(0, 0,0, 0);
+    text-align: center;
+   	width: 100rpx;
+		height: 100rpx;
+		padding: 20rpx 20rpx 20rpx 20rpx;
+    background-image: url("https://s3.ax1x.com/2020/12/17/r8yIzj.png");
+    background-size: 100% 100%;
+	}
+	progress{
+  height: 40rpx;
+	width: 300rpx;
+	border-radius: 10rpx;
+	}

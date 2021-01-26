@@ -1,0 +1,16 @@
+<view class="content">
+  <view class="title">	
+  <text id="title">{{titlemsg}}</text>
+  </view>
+  <view class="ContentMiddle">
+    <image class="ImageGiF" src="" ></image>
+  </view>
+  <view class="ButtonBlock">
+        <button class="button" bindtap="start">
+          <text>开始游戏</text>
+        </button>
+        <button class="button" bindtap="goBack">
+          <text>返回首页</text>
+        </button>  
+</view>
+</view>

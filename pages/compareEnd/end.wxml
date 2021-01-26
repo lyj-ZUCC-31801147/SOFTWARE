@@ -1,0 +1,16 @@
+<!--pages/compareEnd/end.wxml-->
+<view class="content">
+  <view class="title">	
+  <text id="title">{{titlemsg}}</text>
+  </view>
+  <view class="ContentMiddle">
+    <text class="score" wx:for="{{score}}">{{item.module_item}}{{item.analysis_comment}}</text>
+  </view>
+  <view class="ButtonBlock">
+        <button class="button" bindtap="next">
+          <text>继续测试</text>
+        </button> 
+</view>
+</view>
+
+

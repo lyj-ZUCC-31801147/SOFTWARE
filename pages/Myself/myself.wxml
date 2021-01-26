@@ -1,0 +1,43 @@
+<!--pages/Myself/myself.wxml-->
+<view class="content">
+  <view class="Content">
+    
+    <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view>
+
+
+  <view class='radarContainer'>
+        <canvas class='radarCanvas' canvas-id='radarCanvas'></canvas>
+  </view>
+<scroll-view scroll-y="true" style="width:600rpx; height:500rpx" class="scroll_display">
+  <block wx:for='{{trendsList}}' wx:key='index'>
+  <view class="box">
+   <view class="textFour_box {{item.seeMore?'three':''}}">{{item.text}}</view>
+   <view class="text_toggle_box" wx:if='{{item.seeMore}}' data-index='{{index}}' catchtap='toggleHandler'>
+    <text class="text_toggle_text">查看更多</text>
+    <image class="toggle-icon" src="../../image/1.png"></image>
+   </view>
+   <view class="text_toggle_box" wx:if='{{!item.seeMore && item.auto}}' data-index='{{index}}' catchtap='toggleContent'>
+    <text class="text_toggle_text">收起</text>
+    <image class="toggle-icon" src="../../image/2.png"></image>
+   </view>
+  </view>
+ </block>
+</scroll-view>
+
+
+
+  </view>
+  <view class="ButtonBlock">
+    <button class="Button" bindtap="GoBack">
+      <text>返回游戏界面</text>
+    </button>
+  </view>
+
+
+</view>

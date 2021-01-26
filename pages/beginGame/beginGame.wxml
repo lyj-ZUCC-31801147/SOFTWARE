@@ -1,0 +1,18 @@
+
+<view class="content" >	
+    <view class="ContentMiddle">
+        <button class="button" bindtap="goGame1">
+          <text>开始比大小测试</text>
+        </button>
+        <button class="button" bindtap="goGame2">
+          <text>开始识文辩图测试</text>
+        </button>  
+        <button class="button" bindtap="goGame3">
+          <text>开始三视图测试</text>
+        </button>  
+        <button class="button" bindtap="goMyself">
+          <text>个人总结</text>
+        </button>  
+    </view>
+  </view>	
+  
