@@ -2,14 +2,17 @@ const app = getApp()
 let easy = []
 let middle =[]
 let hard = []
-var alltime=8
+var alltime=15
+var FirstD=3
+var SecondD=6
+var ThirdD=8
 Page({
   data: {
     titlemsg:'点击卡片选择',
     problemMsg:'',
     progress:1,
     allscore:0,
-    countDown:'8',
+    countDown:'15',
     isclickLeft:false,
     isclickRight:false,
     LeftUrl:"",
@@ -30,7 +33,7 @@ this.setData({
 },
 onShow:function(){
   let that=this;
-  if(that.data.progress<=8){
+  if(that.data.progress<=ThirdD){
   that.timeprogress()
   that.timeprogress()
 }
@@ -115,22 +118,20 @@ this.getSWBT(that.data.difficulity)
     }else {
       console.log("error")
     }
-    if(progress<=8){
-      alltime=8
-      if(progress>0&&progress<=3){
+    if(progress<ThirdD){
+      alltime=15
+      if(progress>0&&progress<=FirstD){
         that.getSWBT("1")
-      }else if(progress>3&&progress<=6){
+      }else if(progress>FirstD&&progress<=SecondD){
         that.getSWBT("2")
       }else{
         that.getSWBT("3")
-        if(progress==8){
-          that.updateScore("SWBT",that.data.allscore)
-        }
       }
-    }else{
-      if(that.setData.next){
+    }else if(progress==ThirdD+1){
+      that.updateScore("SWBT",that.data.allscore)
+      if(that.data.next){
         that.setData({
-          "next":false
+          "next":false,      
         })
       wx.redirectTo({
         url: '/pages/deterEnd/end?allscore=score',
@@ -205,7 +206,7 @@ this.getSWBT(that.data.difficulity)
                   "RightUrl":res.data[a].URL_Right,
                   "difficulity":aDiffculty,
                   "answer":res.data[a].swbt_true,
-                  "countDown":8,
+                  "countDown":alltime,
                   "isclickLeft":false,
                   "isclickRight":false,
                   "problemMsg":res.data[a].swbt_problem,
@@ -227,42 +228,34 @@ this.getSWBT(that.data.difficulity)
         alltime--
         that.setData({
           "countDown": alltime,
-          "timeProgress":alltime/8*100
+          "timeProgress":alltime/15*100
         })
         if (alltime == 0) {
-          alltime=8
-          clearInterval(that.data.timer);
+          alltime=15;  
           progress+=1;
-          if(progress<=8){
-            if(progress>0&&progress<=3){
+          clearInterval(that.data.timer);
+          if(progress<=ThirdD){
+            if(progress>0&&progress<=FirstD){
               that.getSWBT("1")
-            }else if(progress>3&&progress<=6){
+            }else if(progress>FirstD&&progress<=SecondD){
               that.getSWBT("2")
             }else{
               that.getSWBT("3")
-              if(progress==8){
-                that.updateScore("SWBT",that.data.allscore)
-                var score=that.data.allscore
-               
-                wx.redirectTo({
-                  url: '/pages/deterEnd/end?allscore=score',
-                })
-              }
             }
             that.setData({
               "process":progress,
             })
-          }else{
-            if(that.setData.next){
+          }else if(progress==ThirdD+1){ 
+              var score=that.data.allscore
+              that.updateScore("SWBT",that.data.allscore)
+            if(that.data.next){
               that.setData({
                 "next":false
               })
-            wx.redirectTo({
-              url: '/pages/deterEnd/end?allscore=score',
-            })
-          }
-        }
-        }
+              wx.redirectTo({
+                url: '/pages/deterEnd/end?allscore=score',
+              })}
+        }}
       }, 1000)
     })
   }

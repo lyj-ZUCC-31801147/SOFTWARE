@@ -2,7 +2,10 @@ const app = getApp()
 let easy = []
 let middle =[]
 let hard = []
-var alltime=8
+var alltime=15
+var firstP=3
+var secondP=6
+var thirdP=8
 Page({
   data: {
     titlemsg:'点击卡片选择',
@@ -25,12 +28,12 @@ onLoad() {
 this.getBDX("1")
 this.setData({
   "allscore":0,
-  "countDown":8
+  "countDown":15
 })
 },
 onShow:function(){
   let that=this;
-  if(that.data.progress<=14){
+  if(that.data.progress<=thirdP){
   that.timeprogress()
   that.timeprogress()
 }
@@ -107,35 +110,35 @@ this.getBDX(that.data.difficulity)
     duration:2000,
   })}
   if(left||right){
-    progress+=1
-    if((left&&answer=="left")||(right&&answer=="right")){
+    progress++
+    if((left&&answer=="Left")||(right&&answer=="Right")){
       allscore+=1;
       console.log(allscore)
       console.log("success")
     }else {
       console.log("error")
     }
-    if(progress<=14){
-      alltime=8
-      if(progress>0&&progress<=6){
+    if(progress<=thirdP){
+      alltime=15
+      if(progress>0&&progress<=firstP){
         that.getBDX("1")
-      }else if(progress>6&&progress<=12){
+      }else if(progress>firstP&&progress<=secondP){
         that.getBDX("2")
-      }else{
+      }else if(progress<=thirdP){
         that.getBDX("3")
-        if(progress==14){
-          that.updateScore("BDX",that.data.allscore)
-        }
       }
-    }else{
+    }else if(progress==thirdP+1){
+      var score=that.data.allscore
+        that.updateScore("BDX",score)
       if(that.data.next){
         that.setData({
           "next":false
-        })
-      wx.redirectTo({
+        })  
+        wx.redirectTo({
         url: '/pages/compareEnd/end?allscore=score',
       })
-    }
+       }
+     
     }
     that.setData({
     "progress":progress,
@@ -203,7 +206,7 @@ this.getBDX(that.data.difficulity)
                   "RightUrl":res.data[a].URL_Right,
                   "difficulity":aDiffculty,
                   "answer":res.data[a].bdx_true,
-                  "countDown":8,
+                  "countDown":alltime,
                   "isclickLeft":false,
                   "isclickRight":false,
                 })
@@ -223,37 +226,26 @@ this.getBDX(that.data.difficulity)
         alltime--
         that.setData({
           "countDown": alltime,
-          "timeProgress":alltime/8*100
+          "timeProgress":alltime/15*100
         })
-        if (alltime == 0) {
-          alltime=8
+        if (alltime <= 0) {
+          progress++;
+          alltime=15
           clearInterval(that.data.timer);
-          progress+=1;
-          if(progress<=14){
-            if(progress>0&&progress<=6){
+          if(progress<=thirdP){
+            if(progress>0&&progress<=firstP){
               that.getBDX("1")
-            }else if(progress>6&&progress<=12){
+            }else if(progress>firstP&&progress<=secondP){
               that.getBDX("2")
-            }else{
+            }else if(progress<=thirdP){
               that.getBDX("3")
-              if(progress==14){
-    }else if(aModule=="BDX"){
-                that.updateScore("BDX",that.data.allscore)
-                var score=that.data.allscore
-                if(that.data.next){
-                  that.setData({
-                    "next":false
-                  })
-                wx.redirectTo({
-                  url: '/pages/compareEnd/end?allscore=score',
-                })
-              }
-              }
             }
             that.setData({
               "process":progress,
             })
-          }else{
+          }else if(progress==thirdP+1){
+             that.updateScore("BDX",that.data.allscore)
+             var score=that.data.allscore
             if(that.data.next){
               that.setData({
                 "next":false
@@ -261,9 +253,7 @@ this.getBDX(that.data.difficulity)
             wx.redirectTo({
               url: '/pages/compareEnd/end?allscore=score',
             })
-          }
-          }
-        }
+          }}}
       }, 1000)
     })
   }

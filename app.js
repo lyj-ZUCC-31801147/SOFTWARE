@@ -22,11 +22,12 @@ App({
     wx.cloud.init()
     const db = wx.cloud.database()
     db.collection("USER_INFO").where({
+      
     }).get({
       success:res=>{
         console.log(res.data.length)
         
-        if(res.data.length=="0"){
+        if(res.data.length=="0" || res.data.length==0){
           console.log("新用户的处理逻辑")
           db.collection('USER_INFO').add({
             // data 字段表示需新增的 JSON 数据
